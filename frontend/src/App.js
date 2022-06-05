@@ -8,16 +8,16 @@ import ProductScreen from './screens/ProductScreen';
 const App = () => {
   return (
     <Router>
-      <Header/>
+      <Header />
       <main className='py-3'>
         <Container>
           <Routes>
-            <Route path='/' element={<HomeScreen/>}/>
-            <Route path='/product/:id' element={<ProductScreen/>}/>
+            <Route path='/' element={<HomeScreen />} />
+            <Route path='/product/:id' element={<ProductScreen />} />
           </Routes>
         </Container>
       </main>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
