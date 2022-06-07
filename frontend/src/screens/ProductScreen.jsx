@@ -9,14 +9,15 @@ const ProductScreen = ({ match }) => {
 
   const { id } = useParams();
   const [product, setProduct] = useState({})
-
-  useEffect(() => {
+    useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/api/products/${id}`)
       setProduct(data)
     }
     fetchProduct()
     }, [match, id])
+
+
 
   return (
     <>
@@ -58,13 +59,13 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>Status:</Col>
                   <Col>
-                    {product.isInStock > 0 ? "In Stock" : "Out of stock"}
+                    {product.countInStock > 0 ? "In Stock" : "Out of stock"}
                   </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Button className="btn-block my-3" type='button' disabled={product.isInStock === 0}>{product.isInStock >= 1 ? 'Add to Cart' : 'Out of Stock'}</Button>
+                  <Button className="btn-block my-3" type='button' disabled={product.countInStock === 0}>{product.countInStock >= 1 ? 'Add to Cart' : 'Out of Stock'}</Button>
                 </Row>
               </ListGroup.Item>
             </ListGroup>
